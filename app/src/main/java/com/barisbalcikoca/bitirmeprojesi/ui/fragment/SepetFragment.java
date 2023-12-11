@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.barisbalcikoca.bitirmeprojesi.R;
 import com.barisbalcikoca.bitirmeprojesi.data.entity.SepetYemekler;
@@ -74,6 +75,10 @@ public class SepetFragment extends Fragment  {
 
             sepetAdapter = new SepetAdapter(requireContext(),sepetYemeklerListesi,viewModel);
             binding.sepetrv.setAdapter(sepetAdapter);
+        });
+
+        binding.btnSepetiOnayla.setOnClickListener(view -> {
+            Toast.makeText(view.getContext(), toplamTutar+"₺ Kadar ödemeniz bulunmakta", Toast.LENGTH_SHORT).show();
         });
 
         return binding.getRoot();
