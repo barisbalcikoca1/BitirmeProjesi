@@ -1,6 +1,7 @@
 package com.barisbalcikoca.bitirmeprojesi.retrofit;
 
 import com.barisbalcikoca.bitirmeprojesi.data.entity.CRUDCevap;
+import com.barisbalcikoca.bitirmeprojesi.data.entity.SepetYemeklerCevap;
 import com.barisbalcikoca.bitirmeprojesi.data.entity.YemeklerCevap;
 
 import retrofit2.Call;
@@ -25,5 +26,17 @@ public interface YemeklerDao {
                            @Field("yemek_siparis_adet") int yemek_siparis_adet,
                            @Field("kullanici_adi") String kullanici_adi
                            );
+
+    @POST("yemekler/sepettekiYemekleriGetir.php")
+    @FormUrlEncoded
+    Call<SepetYemeklerCevap> sepettekiYemekleriGetir(@Field("kullanici_adi") String kullanici_adi
+    );
+
+    @POST("yemekler/sepettenYemekSil.php")
+    @FormUrlEncoded
+    Call<CRUDCevap> sepettenYemekSil(@Field("sepet_yemek_id") int sepet_yemek_id,
+                                     @Field("kullanici_adi") String kullanici_adi
+    );
+
 
 }

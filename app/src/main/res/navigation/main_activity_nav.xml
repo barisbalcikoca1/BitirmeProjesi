@@ -13,6 +13,9 @@
         <action
             android:id="@+id/detayGecis"
             app:destination="@id/detayFragment" />
+        <action
+            android:id="@+id/anasayfaSepetGecis"
+            app:destination="@id/sepetFragment" />
     </fragment>
     <fragment
         android:id="@+id/detayFragment"
@@ -22,5 +25,17 @@
         <argument
             android:name="yemek"
             app:argType="com.barisbalcikoca.bitirmeprojesi.data.entity.Yemekler" />
+        <action
+            android:id="@+id/sepetGecis"
+            app:destination="@id/sepetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sepetFragment"
+        android:name="com.barisbalcikoca.bitirmeprojesi.ui.fragment.SepetFragment"
+        android:label="fragment_sepet"
+        tools:layout="@layout/fragment_sepet" >
+        <argument
+            android:name="sepetYemek"
+            app:argType="com.barisbalcikoca.bitirmeprojesi.data.entity.SepetYemekler" />
     </fragment>
 </navigation>

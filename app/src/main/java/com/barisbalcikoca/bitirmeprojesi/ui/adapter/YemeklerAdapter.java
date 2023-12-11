@@ -1,17 +1,23 @@
 package com.barisbalcikoca.bitirmeprojesi.ui.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.barisbalcikoca.bitirmeprojesi.data.entity.SepetYemekler;
 import com.barisbalcikoca.bitirmeprojesi.data.entity.Yemekler;
 import com.barisbalcikoca.bitirmeprojesi.databinding.AnasayfaCardTasarimBinding;
 import com.barisbalcikoca.bitirmeprojesi.ui.fragment.AnasayfaFragment;
 import com.barisbalcikoca.bitirmeprojesi.ui.fragment.AnasayfaFragmentDirections;
+import com.barisbalcikoca.bitirmeprojesi.ui.viewmodel.DetayViewModel;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -20,10 +26,16 @@ public class YemeklerAdapter extends RecyclerView.Adapter<YemeklerAdapter.Anasay
 
     private Context mContext;
     private List<Yemekler> yemeklerListesi;
+    private DetayViewModel detayViewModel;
+    private final String kullanici_adi = "baris_balcikoca";
+    SepetYemekler sepetYemekler = new SepetYemekler();
 
-    public YemeklerAdapter(Context mContext, List<Yemekler> yemeklerListesi) {
+
+
+    public YemeklerAdapter(Context mContext, List<Yemekler> yemeklerListesi,DetayViewModel detayViewModel) {
         this.mContext = mContext;
         this.yemeklerListesi = yemeklerListesi;
+        this.detayViewModel = detayViewModel;
     }
 
     public class AnasayfaCardTasarimTutucu extends RecyclerView.ViewHolder{
@@ -46,6 +58,7 @@ public class YemeklerAdapter extends RecyclerView.Adapter<YemeklerAdapter.Anasay
     @Override
     public void onBindViewHolder(@NonNull AnasayfaCardTasarimTutucu holder, int position) {
         Yemekler yemek = yemeklerListesi.get(position);
+
         AnasayfaCardTasarimBinding t = holder.tasarim;
 
         String url = "http://kasimadalan.pe.hu/yemekler/resimler/"+yemek.getYemek_resim_adi();
@@ -59,12 +72,14 @@ public class YemeklerAdapter extends RecyclerView.Adapter<YemeklerAdapter.Anasay
             Navigation.findNavController(view).navigate(gecis);
         });
 
+
     }
 
     @Override
     public int getItemCount() {
         return yemeklerListesi.size();
     }
+
 
 
 }

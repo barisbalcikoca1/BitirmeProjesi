@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="acikSari">#F29F05</color>
+    <color name="kapaliSari">#F28705</color>
+    <color name="turuncu">#D95204</color>
+    <color name="acikBeyaz">#F2EBE9</color>
+    <color name="cokaciksari">#FFFDE7</color>
+
+
 </resources>

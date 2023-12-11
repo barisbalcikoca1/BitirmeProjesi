@@ -1,6 +1,8 @@
 package com.barisbalcikoca.bitirmeprojesi.data.entity;
 
-public class SepetYemekler {
+import java.io.Serializable;
+
+public class SepetYemekler implements Serializable {
     private int sepet_yemek_id;
     private String yemek_adi;
     private String yemek_resim_adi;
@@ -20,6 +22,7 @@ public class SepetYemekler {
         this.yemek_siparis_adet = yemek_siparis_adet;
         this.kullanici_adi = kullanici_adi;
     }
+
 
     public int getSepet_yemek_id() {
         return sepet_yemek_id;
